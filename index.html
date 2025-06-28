@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salvum me fac 666</title>
+    <title>Salvum me fac</title>
     <style>
         /* DungGeunMo 폰트 직접 로드 시도 (woff2 포맷 우선) */
         @font-face {
@@ -47,9 +47,11 @@
             font-weight: normal;
         }
 
-        /* 마지막 문단을 위한 고유 ID 스타일 (최고 우선순위) */
+        /* 다크모드에서도 숨겨질 문단 스타일 */
+        /* mix-blend-mode를 사용하여 배경과 섞여 보이지 않게 합니다. */
         #hiddenLastParagraph {
-            color: #000000 !important; /* 배경색과 똑같은 검은색으로 강제 설정 */
+            color: #000000 !important; /* 배경색과 동일한 색상으로 설정 (필수) */
+            mix-blend-mode: difference; /* 배경과 혼합되어 보이지 않게 함 */
             margin-top: 40px; /* 위쪽으로 충분히 띄움 */
             text-align: left; /* 왼쪽 정렬 */
         }
