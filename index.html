@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -47,13 +48,21 @@
             font-weight: normal;
         }
 
-        /* 다크모드에서도 숨겨질 문단 스타일 */
-        /* mix-blend-mode를 사용하여 배경과 섞여 보이지 않게 합니다. */
+        /* 글자 크기는 아주 작게, 하지만 드래그 가능하도록 문단 높이는 확보 */
         #hiddenLastParagraph {
-            color: #000000 !important; /* 배경색과 동일한 색상으로 설정 (필수) */
-            mix-blend-mode: difference; /* 배경과 혼합되어 보이지 않게 함 */
-            margin-top: 40px; /* 위쪽으로 충분히 띄움 */
+            font-size: 0.01em !important; /* 글자 크기를 극도로 작게 */
+            line-height: 1em !important; /* 줄 간격을 일반적인 높이로 유지 (기존 글자의 약 1/2 높이) */
+            color: #000000 !important; /* 글자색을 배경색과 동일하게 (다크모드 강제 반전 방지용) */
+            /* 만약 위 color 속성이 다크모드에서 또 반전된다면,
+               opacity: 0 !important; 를 추가하여 투명도를 0으로 설정할 수 있습니다.
+               이 경우 드래그해도 보이지 않습니다.
+            */
+            margin-top: 40px; /* 상단 여백 유지 */
             text-align: left; /* 왼쪽 정렬 */
+            height: auto !important; /* 높이를 자동으로 설정하여 내용이 차지하는 만큼 높이 확보 */
+            min-height: 1em !important; /* 최소 높이를 1줄 정도로 확보하여 드래그 영역 생성 */
+            overflow: visible !important; /* 오버플로우를 숨기지 않고 보이도록 변경 (필수) */
+            word-wrap: break-word; /* 긴 단어가 자동으로 줄바꿈되도록 */
         }
     </style>
 </head>
